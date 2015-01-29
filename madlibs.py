@@ -14,6 +14,7 @@ def start_here():
 # route to display a simple web page
 @app.route('/hello')
 def say_hello():
+
     return render_template("hello.html")
 
 @app.route('/greet')
@@ -27,6 +28,16 @@ def greet_person():
     compliment = choice(AWESOMENESS)
 
     return render_template("compliment.html", person=player, compliment=compliment)
+
+@app.route('/game')
+def show_game_form():
+    answer = request.args.get("answer")
+    print "Hi"
+    if answer == "yes":
+        print answer
+        return render_template("game.html", answer=answer)
+    if answer == "no":
+        return render_template("goodbye.html", answer=answer)
 
 
 if __name__ == '__main__':
