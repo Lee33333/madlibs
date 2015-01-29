@@ -45,7 +45,11 @@ def show_madlib():
     gameadj = request.args.get("gameadj")
     gamecolor = request.args.get("gamecolor")
     print "This is the answer:", request.args
-    return render_template("madlib.html", gameperson=gameperson, gameadj=gameadj, gamenoun=gamenoun, gamecolor=gamecolor)
+    return render_template("madlib.html", 
+        gameperson=gameperson, 
+        gameadj=gameadj, 
+        gamenoun=gamenoun, 
+        gamecolor=gamecolor)
 
 
 if __name__ == '__main__':
