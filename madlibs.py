@@ -32,12 +32,20 @@ def greet_person():
 @app.route('/game')
 def show_game_form():
     answer = request.args.get("answer")
-    print "Hi"
     if answer == "yes":
         print answer
         return render_template("game.html", answer=answer)
     if answer == "no":
         return render_template("goodbye.html", answer=answer)
+
+@app.route('/madlib')
+def show_madlib():
+    gameperson = request.args.get("gameperson")
+    gamenoun = request.args.get("gamenoun")
+    gameadj = request.args.get("gameadj")
+    gamecolor = request.args.get("gamecolor")
+    print "This is the answer:", request.args
+    return render_template("madlib.html", gameperson=gameperson, gameadj=gameadj, gamenoun=gamenoun, gamecolor=gamecolor)
 
 
 if __name__ == '__main__':
